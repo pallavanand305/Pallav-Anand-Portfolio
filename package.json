@@ -1,0 +1,23 @@
+{
+  "name": "pallav-anand-resume",
+  "version": "1.0.0",
+  "description": "Professional Resume Website for Pallav Anand - Software Developer",
+  "main": "index.html",
+  "scripts": {
+    "start": "serve .",
+    "build": "echo 'Static site - no build needed'",
+    "deploy": "vercel --prod"
+  },
+  "keywords": [
+    "resume",
+    "portfolio",
+    "software-developer",
+    "pallav-anand",
+    "python",
+    "aws",
+    "devops",
+    "machine-learning"
+  ],
+  "author": "Pallav Anand",
+  "license": "MIT"
+}
