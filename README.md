@@ -3,7 +3,7 @@
 🚀 **Live Website:** [https://pallav-anand-resume.vercel.app](https://pallav-anand-resume.vercel.app)
 
 ## About
-Professional resume website for **Pallav Anand**, Software Developer with 2 years 11 months of experience specializing in:
+Professional resume website for **Pallav Anand**, Software Developer with 3 years of experience specializing in:
 - Python Backend Development
 - AWS Cloud Services & DevOps
 - CI/CD Pipelines & MLOps

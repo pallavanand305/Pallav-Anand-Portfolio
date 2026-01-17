@@ -7,19 +7,19 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <meta name="description" content="Pallav Anand - Software Developer with 2 years 11 months experience in Python Backend, AWS Cloud, DevOps, CI/CD, MLOps, AI/ML. Published researcher in machine learning and stock market prediction.">
+    <meta name="description" content="Pallav Anand - Software Developer with 3 years experience in Python Backend, AWS Cloud, DevOps, CI/CD, MLOps, AI/ML. Published researcher in machine learning and stock market prediction.">
     <meta name="keywords" content="Pallav Anand, Software Developer, Python Backend Developer, AWS Cloud Engineer, DevOps Engineer, CI/CD Specialist, MLOps Engineer, AI ML Engineer, Machine Learning, Deep Learning, LSTM, XGBoost, Random Forest, Docker, Kubernetes, Jenkins, Terraform, AWS SageMaker, Research Publications, Resume, CV">
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://pallav-anand-resume.vercel.app/">
     <meta property="og:title" content="Pallav Anand - Software Developer Resume">
-    <meta property="og:description" content="Experienced Software Developer specializing in Python Backend, AWS Cloud, DevOps, CI/CD, MLOps, and AI/ML with 2 years 11 months of professional experience. Published researcher in machine learning.">
+    <meta property="og:description" content="Experienced Software Developer specializing in Python Backend, AWS Cloud, DevOps, CI/CD, MLOps, and AI/ML with 3 years of professional experience. Published researcher in machine learning.">
     
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:title" content="Pallav Anand - Software Developer Resume">
-    <meta property="twitter:description" content="Experienced Software Developer specializing in Python Backend, AWS Cloud, DevOps, CI/CD, MLOps, and AI/ML with 2 years 11 months of professional experience. Published researcher in machine learning.">
+    <meta property="twitter:description" content="Experienced Software Developer specializing in Python Backend, AWS Cloud, DevOps, CI/CD, MLOps, and AI/ML with 3 years of professional experience. Published researcher in machine learning.">
     
     <style>
         * {
@@ -659,7 +659,7 @@
                 <a href="https://leetcode.com/u/KhruMSW2fR/" target="_blank">🔧 LeetCode</a>
             </div>
             <div style="margin-top: 15px; font-size: 1.1em;">
-                📍 Noida, INDIA | 💼 Experience: 2 Years 11 Months
+                📍 Noida, INDIA | 💼 Experience: 3 Years
             </div>
         </div>
 
@@ -668,7 +668,7 @@
             <div class="section">
                 <h2>Profile Summary</h2>
                 <div class="profile-summary">
-                    Results-driven Software Engineer with 2 years 11 months of expertise in Python backend development, AWS Cloud Services, DevOps automation, CI/CD pipelines (Jenkins, Docker, Kubernetes), and MLOps infrastructure. Specialized in Infrastructure as Code (Terraform, CloudFormation), machine learning model deployment on AWS SageMaker, and scalable AI/ML solutions. Proven track record of accelerating deployment cycles by 45%, reducing ML model inference time by 35%, and optimizing cloud infrastructure costs by 20%. Expert in building production-grade microservices, implementing comprehensive monitoring solutions, and delivering end-to-end MLOps workflows that drive business value and operational excellence.
+                    Results-driven Software Engineer with 3 years of expertise in Python backend development, AWS Cloud Services, DevOps automation, CI/CD pipelines (Jenkins, Docker, Kubernetes), and MLOps infrastructure. Specialized in Infrastructure as Code (Terraform, CloudFormation), machine learning model deployment on AWS SageMaker, and scalable AI/ML solutions. Proven track record of accelerating deployment cycles by 45%, reducing ML model inference time by 35%, and optimizing cloud infrastructure costs by 20%. Expert in building production-grade microservices, implementing comprehensive monitoring solutions, and delivering end-to-end MLOps workflows that drive business value and operational excellence.
                 </div>
             </div>
 
@@ -980,7 +980,7 @@
         "@type": "Person",
         "name": "Pallav Anand",
         "jobTitle": "Software Developer",
-        "description": "Results-driven Software Engineer with 2 years 11 months of expertise in Python backend development, AWS Cloud, DevOps, CI/CD, MLOps, and AI/ML. Published researcher in machine learning and financial forecasting.",
+        "description": "Results-driven Software Engineer with 3 years of expertise in Python backend development, AWS Cloud, DevOps, CI/CD, MLOps, and AI/ML. Published researcher in machine learning and financial forecasting.",
         "url": "https://pallav-anand-resume.vercel.app",
         "sameAs": [
             "https://www.linkedin.com/in/pallav-anand-8a32a625a",
@@ -1203,9 +1203,9 @@
 
             // Enhanced counter animation for years of experience
             const experienceText = document.querySelector('.header div:last-child');
-            if (experienceText && experienceText.textContent.includes('2 Years 11 Months')) {
+            if (experienceText && experienceText.textContent.includes('3 Years')) {
                 let count = 0;
-                const target = 2.92; // 2 years 11 months ≈ 2.92 years
+                const target = 3.0;
                 const increment = target / 120;
                 
                 const counter = setInterval(() => {
@@ -1214,9 +1214,7 @@
                         count = target;
                         clearInterval(counter);
                     }
-                    const years = Math.floor(count);
-                    const months = Math.round((count - years) * 12);
-                    experienceText.innerHTML = experienceText.innerHTML.replace(/\d+\s*Years\s*\d+\s*Months/, `${years} Years ${months} Months`);
+                    experienceText.innerHTML = experienceText.innerHTML.replace(/[\d.]+\s*Years/, `${count.toFixed(1)} Years`);
                 }, 25);
             }
 
