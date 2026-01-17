@@ -1,6 +1,6 @@
 # Pallav Anand - Professional Resume Website
 
-🚀 **Live Website:** [https://pallav-anand-resume.vercel.app](https://pallav-anand-resume.vercel.app)
+🚀 **Live Website:** https://pallavanand305.github.io/Pallav-Anand-Portfolio/
 
 ## About
 Professional resume website for **Pallav Anand**, Software Developer with 3 years of experience specializing in:
