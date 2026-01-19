@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <meta name="description" content="Pallav Anand - Software Developer with 3 years experience in Python Backend, AWS Cloud, DevOps, CI/CD, MLOps, AI/ML. Published researcher in machine learning and stock market prediction.">
-    <meta name="keywords" content="Pallav Anand, Software Developer, Python Backend Developer, AWS Cloud Engineer, DevOps Engineer, CI/CD Specialist, MLOps Engineer, AI ML Engineer, Machine Learning, Deep Learning, LSTM, XGBoost, Random Forest, Docker, Kubernetes, Jenkins, Terraform, AWS SageMaker, Research Publications, Resume, CV">
+    <meta name="keywords" content="Pallav Anand, AI Engineer, ML Engineer, MLOps Engineer, Python Backend Developer, AWS Cloud Engineer, DevOps Engineer, CI/CD Specialist, Machine Learning Engineer, Deep Learning, PyTorch, TensorFlow, Kubernetes, Docker, Jenkins, Terraform, AWS SageMaker, Model Deployment, Data Engineering, Apache Kafka, Microservices, FastAPI, Django, Research Publications, Resume, CV">
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
@@ -33,9 +33,11 @@
             line-height: 1.6;
             color: #2d3748;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background-size: 400% 400%;
+            animation: morphBackground 15s ease infinite, fadeIn 1s ease-in;
             min-height: 100vh;
             padding: 20px;
-            animation: fadeIn 1s ease-in;
+            perspective: 1000px;
         }
         
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
@@ -48,7 +50,7 @@
         @keyframes slideInUp {
             from {
                 opacity: 0;
-                transform: translateY(30px);
+                transform: translateY(40px);
             }
             to {
                 opacity: 1;
@@ -59,7 +61,7 @@
         @keyframes slideInLeft {
             from {
                 opacity: 0;
-                transform: translateX(-30px);
+                transform: translateX(-40px);
             }
             to {
                 opacity: 1;
@@ -70,7 +72,7 @@
         @keyframes slideInRight {
             from {
                 opacity: 0;
-                transform: translateX(30px);
+                transform: translateX(40px);
             }
             to {
                 opacity: 1;
@@ -98,7 +100,79 @@
         
         @keyframes float {
             0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
+            50% { transform: translateY(-8px); }
+        }
+        
+        @keyframes shimmer {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+        
+        @keyframes typewriter {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+        
+        @keyframes blink {
+            0%, 50% { border-color: transparent; }
+            51%, 100% { border-color: #667eea; }
+        }
+        
+        @keyframes morphBackground {
+            0%, 100% { 
+                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            }
+            25% { 
+                background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            }
+            50% { 
+                background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            }
+            75% { 
+                background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+            }
+        }
+        
+        @keyframes cardHover {
+            0% { 
+                transform: translateY(0) rotateX(0deg);
+                box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            }
+            100% { 
+                transform: translateY(-8px) rotateX(5deg);
+                box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+            }
+        }
+        
+        @keyframes skillPulse {
+            0% { 
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(102, 126, 234, 0.7);
+            }
+            70% { 
+                transform: scale(1.05);
+                box-shadow: 0 0 0 10px rgba(102, 126, 234, 0);
+            }
+            100% { 
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(102, 126, 234, 0);
+            }
+        }
+        
+        @keyframes progressBar {
+            0% { width: 0%; }
+            100% { width: 100%; }
+        }
+        
+        @keyframes fadeInScale {
+            0% {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
         }
         
         .container {
@@ -109,9 +183,10 @@
             box-shadow: 0 20px 40px rgba(0,0,0,0.1), 0 0 0 1px rgba(255,255,255,0.2);
             border-radius: 20px;
             overflow: hidden;
-            animation: slideInUp 0.8s ease-out;
-            transition: all 0.3s ease;
+            animation: slideInUp 0.8s ease-out, float 6s ease-in-out infinite;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             position: relative;
+            transform-style: preserve-3d;
         }
         
         .container::before {
@@ -126,6 +201,22 @@
             animation: gradientShift 3s ease-in-out infinite;
         }
         
+        .container::after {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, #667eea, #764ba2, #f093fb, #f5576c);
+            background-size: 400% 400%;
+            animation: gradientShift 4s ease infinite;
+            border-radius: 22px;
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
         @keyframes gradientShift {
             0%, 100% { background-position: 0% 50%; }
             50% { background-position: 100% 50%; }
@@ -133,7 +224,11 @@
         
         .container:hover {
             box-shadow: 0 30px 60px rgba(0,0,0,0.15), 0 0 0 1px rgba(255,255,255,0.3);
-            transform: translateY(-5px);
+            transform: translateY(-8px) rotateX(2deg);
+        }
+        
+        .container:hover::after {
+            opacity: 0.3;
         }
         
         .header {
@@ -283,11 +378,12 @@
             padding: 25px;
             border-radius: 15px;
             border: 1px solid rgba(102, 126, 234, 0.2);
-            transition: all 0.3s ease;
-            animation: slideInUp 0.6s ease-out both;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            animation: fadeInScale 0.6s ease-out both;
             animation-delay: calc(var(--skill-index, 0) * 0.1s + 1.6s);
             position: relative;
             overflow: hidden;
+            transform-style: preserve-3d;
         }
         
         .skill-category::before {
@@ -299,12 +395,24 @@
             height: 4px;
             background: linear-gradient(90deg, #667eea, #764ba2);
             transform: scaleX(0);
-            transition: transform 0.3s ease;
+            transform-origin: left;
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .skill-category::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            transition: left 0.6s ease;
         }
         
         .skill-category:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 15px 35px rgba(102, 126, 234, 0.2);
+            transform: translateY(-10px) rotateX(5deg);
+            box-shadow: 0 20px 40px rgba(102, 126, 234, 0.25);
             border-color: rgba(102, 126, 234, 0.4);
         }
         
@@ -312,16 +420,22 @@
             transform: scaleX(1);
         }
         
+        .skill-category:hover::after {
+            left: 100%;
+        }
+        
         .skill-category h3 {
             color: #1a202c;
             margin-bottom: 20px;
             font-size: 1.2em;
-            transition: color 0.3s ease;
+            transition: all 0.3s ease;
             font-weight: 600;
+            position: relative;
         }
         
         .skill-category:hover h3 {
             color: #667eea;
+            transform: translateX(5px);
         }
         
         .skill-tags {
@@ -337,11 +451,13 @@
             border-radius: 20px;
             font-size: 0.9em;
             font-weight: 500;
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             display: inline-block;
             margin: 2px;
             position: relative;
             overflow: hidden;
+            cursor: pointer;
+            transform-style: preserve-3d;
         }
         
         .skill-tag::before {
@@ -357,8 +473,9 @@
         
         .skill-tag:hover {
             background: linear-gradient(135deg, #f093fb, #f5576c);
-            transform: scale(1.1) rotate(2deg);
-            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+            transform: scale(1.1) translateY(-2px) rotateX(10deg);
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+            animation: skillPulse 1s ease-in-out;
         }
         
         .skill-tag:hover::before {
@@ -372,11 +489,12 @@
             backdrop-filter: blur(10px);
             border-radius: 15px;
             border: 1px solid rgba(231, 76, 60, 0.2);
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             animation: slideInRight 0.6s ease-out both;
             animation-delay: calc(var(--exp-index, 0) * 0.2s + 1.8s);
             position: relative;
             overflow: hidden;
+            transform-style: preserve-3d;
         }
         
         .experience-item::before {
@@ -387,17 +505,33 @@
             width: 4px;
             height: 100%;
             background: linear-gradient(180deg, #e74c3c, #c0392b);
-            transition: width 0.3s ease;
+            transition: all 0.4s ease;
+        }
+        
+        .experience-item::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(231, 76, 60, 0.1), transparent);
+            transition: left 0.6s ease;
         }
         
         .experience-item:hover {
-            transform: translateX(15px);
-            box-shadow: 0 15px 35px rgba(231, 76, 60, 0.2);
+            transform: translateX(15px) rotateY(2deg);
+            box-shadow: 0 20px 40px rgba(231, 76, 60, 0.25);
             border-color: rgba(231, 76, 60, 0.4);
         }
         
         .experience-item:hover::before {
             width: 8px;
+            background: linear-gradient(180deg, #f093fb, #f5576c);
+        }
+        
+        .experience-item:hover::after {
+            left: 100%;
         }
         
         .experience-header {
@@ -588,21 +722,81 @@
                 padding: 10px;
             }
             
+            .container {
+                margin: 0;
+                border-radius: 10px;
+            }
+            
             .header {
                 padding: 30px 20px;
             }
             
             .header h1 {
-                font-size: 2em;
+                font-size: 2.2em;
+            }
+            
+            .header .title {
+                font-size: 1.2em;
             }
             
             .contact-info {
                 flex-direction: column;
                 align-items: center;
+                gap: 10px;
+            }
+            
+            .contact-info a {
+                padding: 10px 18px;
+                font-size: 0.9em;
+                width: 100%;
+                max-width: 280px;
+                text-align: center;
             }
             
             .content {
-                padding: 20px;
+                padding: 20px 15px;
+            }
+            
+            .section {
+                margin-bottom: 35px;
+            }
+            
+            .section h2 {
+                font-size: 1.5em;
+                margin-bottom: 20px;
+            }
+            
+            .skills-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+            
+            .skill-category {
+                padding: 20px 15px;
+                margin-bottom: 15px;
+            }
+            
+            .skill-category h3 {
+                font-size: 1.1em;
+                margin-bottom: 15px;
+                text-align: center;
+            }
+            
+            .skill-tags {
+                justify-content: center;
+                gap: 8px;
+            }
+            
+            .skill-tag {
+                padding: 6px 12px;
+                font-size: 0.85em;
+                margin: 2px;
+                text-align: center;
+            }
+            
+            .experience-item {
+                padding: 20px 15px;
+                margin-bottom: 20px;
             }
             
             .experience-header {
@@ -610,14 +804,100 @@
                 align-items: flex-start;
             }
             
+            .job-title {
+                font-size: 1.2em;
+                margin-bottom: 5px;
+            }
+            
+            .company {
+                font-size: 1em;
+                margin-bottom: 8px;
+            }
+            
             .duration {
                 margin-top: 5px;
+                font-size: 0.9em;
+            }
+            
+            .achievement {
+                padding-left: 15px;
+                font-size: 0.95em;
+                line-height: 1.5;
             }
             
             .education-item {
                 flex-direction: column;
                 align-items: flex-start;
                 text-align: left;
+                padding: 15px;
+            }
+            
+            .degree {
+                font-size: 1.1em;
+                margin-bottom: 5px;
+            }
+            
+            .institution {
+                font-size: 0.95em;
+                margin-bottom: 8px;
+            }
+            
+            .certifications {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+            
+            .cert-item {
+                padding: 15px;
+                font-size: 0.9em;
+            }
+            
+            .download-btn {
+                padding: 15px 25px;
+                font-size: 1em;
+                max-width: 200px;
+            }
+            
+            .profile-summary {
+                font-size: 1em;
+                line-height: 1.6;
+                text-align: left;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .header h1 {
+                font-size: 1.8em;
+            }
+            
+            .header .title {
+                font-size: 1.1em;
+            }
+            
+            .content {
+                padding: 15px 10px;
+            }
+            
+            .skill-category {
+                padding: 15px 10px;
+            }
+            
+            .skill-tag {
+                padding: 5px 10px;
+                font-size: 0.8em;
+            }
+            
+            .experience-item {
+                padding: 15px 10px;
+            }
+            
+            .job-title {
+                font-size: 1.1em;
+            }
+            
+            .achievement {
+                font-size: 0.9em;
+                padding-left: 12px;
             }
         }
         
@@ -668,7 +948,7 @@
             <div class="section">
                 <h2>Profile Summary</h2>
                 <div class="profile-summary">
-                    Results-driven Software Engineer with 3 years of expertise in Python backend development, AWS Cloud Services, DevOps automation, CI/CD pipelines (Jenkins, Docker, Kubernetes), and MLOps infrastructure. Specialized in Infrastructure as Code (Terraform, CloudFormation), machine learning model deployment on AWS SageMaker, and scalable AI/ML solutions. Proven track record of accelerating deployment cycles by 45%, reducing ML model inference time by 35%, and optimizing cloud infrastructure costs by 20%. Expert in building production-grade microservices, implementing comprehensive monitoring solutions, and delivering end-to-end MLOps workflows that drive business value and operational excellence.
+                    Results-driven Software Engineer with 3 years of expertise in Python backend development, AWS Cloud Services, DevOps automation, CI/CD pipelines, MLOps infrastructure, and AI/ML engineering. Specialized in machine learning model deployment, deep learning frameworks (PyTorch, TensorFlow), Infrastructure as Code (Terraform, CloudFormation), and scalable microservices architecture. Expert in MLOps lifecycle management, model monitoring, experiment tracking, and production-grade AI/ML solutions on AWS SageMaker. Proven track record of accelerating deployment cycles by 45%, reducing ML model inference time by 35%, and optimizing cloud infrastructure costs by 20%. Experienced in building enterprise-grade Python applications, implementing comprehensive monitoring solutions, and delivering end-to-end MLOps workflows that drive business value and operational excellence.
                 </div>
             </div>
 
@@ -677,39 +957,7 @@
                 <h2>Technical Skills</h2>
                 <div class="skills-grid">
                     <div class="skill-category">
-                        <h3>Cloud & AWS</h3>
-                        <div class="skill-tags">
-                            <span class="skill-tag">AWS EC2</span>
-                            <span class="skill-tag">S3</span>
-                            <span class="skill-tag">IAM</span>
-                            <span class="skill-tag">Lambda</span>
-                            <span class="skill-tag">API Gateway</span>
-                            <span class="skill-tag">ECS</span>
-                            <span class="skill-tag">EKS</span>
-                            <span class="skill-tag">SageMaker</span>
-                            <span class="skill-tag">Glue</span>
-                            <span class="skill-tag">RDS</span>
-                            <span class="skill-tag">EKS</span>
-                            <span class="skill-tag">CloudFormation</span>
-                        </div>
-                    </div>
-                    
-                    <div class="skill-category">
-                        <h3>DevOps & CI/CD</h3>
-                        <div class="skill-tags">
-                            <span class="skill-tag">Docker</span>
-                            <span class="skill-tag">Kubernetes</span>
-                            <span class="skill-tag">Jenkins</span>
-                            <span class="skill-tag">GitHub CI/CD</span>
-                            <span class="skill-tag">Pipeline Automation</span>
-                            <span class="skill-tag">Infrastructure as Code</span>
-                            <span class="skill-tag">Terraform</span>
-                            <span class="skill-tag">CloudFormation</span>
-                        </div>
-                    </div>
-                    
-                    <div class="skill-category">
-                        <h3>Python Backend Development</h3>
+                        <h3>Python Backend & APIs</h3>
                         <div class="skill-tags">
                             <span class="skill-tag">Python 3.8+</span>
                             <span class="skill-tag">FastAPI</span>
@@ -719,94 +967,82 @@
                             <span class="skill-tag">GraphQL</span>
                             <span class="skill-tag">Microservices</span>
                             <span class="skill-tag">SQLAlchemy</span>
-                            <span class="skill-tag">Pydantic</span>
-                            <span class="skill-tag">Celery</span>
-                            <span class="skill-tag">Redis</span>
                             <span class="skill-tag">Asyncio</span>
                             <span class="skill-tag">WebSockets</span>
-                            <span class="skill-tag">WSGI/ASGI</span>
                         </div>
                     </div>
                     
                     <div class="skill-category">
-                        <h3>Database & Storage</h3>
+                        <h3>Cloud & AWS</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">AWS EC2</span>
+                            <span class="skill-tag">S3</span>
+                            <span class="skill-tag">Lambda</span>
+                            <span class="skill-tag">SageMaker</span>
+                            <span class="skill-tag">EKS</span>
+                            <span class="skill-tag">RDS</span>
+                            <span class="skill-tag">CloudFormation</span>
+                            <span class="skill-tag">API Gateway</span>
+                            <span class="skill-tag">Kinesis</span>
+                            <span class="skill-tag">Glue</span>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-category">
+                        <h3>DevOps & CI/CD</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Docker</span>
+                            <span class="skill-tag">Kubernetes</span>
+                            <span class="skill-tag">Jenkins</span>
+                            <span class="skill-tag">Terraform</span>
+                            <span class="skill-tag">GitHub Actions</span>
+                            <span class="skill-tag">Infrastructure as Code</span>
+                            <span class="skill-tag">Pipeline Automation</span>
+                            <span class="skill-tag">Monitoring</span>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-category">
+                        <h3>AI/ML & MLOps</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Machine Learning</span>
+                            <span class="skill-tag">Deep Learning</span>
+                            <span class="skill-tag">MLOps</span>
+                            <span class="skill-tag">PyTorch</span>
+                            <span class="skill-tag">TensorFlow</span>
+                            <span class="skill-tag">BERT</span>
+                            <span class="skill-tag">LSTM</span>
+                            <span class="skill-tag">Model Deployment</span>
+                            <span class="skill-tag">MLflow</span>
+                            <span class="skill-tag">Feature Engineering</span>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-category">
+                        <h3>Databases & Data Engineering</h3>
                         <div class="skill-tags">
                             <span class="skill-tag">PostgreSQL</span>
                             <span class="skill-tag">MySQL</span>
-                            <span class="skill-tag">MongoDB</span>
-                            <span class="skill-tag">Redis Cache</span>
+                            <span class="skill-tag">Redis</span>
+                            <span class="skill-tag">Apache Kafka</span>
+                            <span class="skill-tag">Apache Spark</span>
+                            <span class="skill-tag">ETL Pipelines</span>
+                            <span class="skill-tag">Data Warehousing</span>
                             <span class="skill-tag">ElasticSearch</span>
-                            <span class="skill-tag">Database Design</span>
-                            <span class="skill-tag">Query Optimization</span>
-                            <span class="skill-tag">Database Migration</span>
-                            <span class="skill-tag">Connection Pooling</span>
-                            <span class="skill-tag">ACID Transactions</span>
                         </div>
                     </div>
                     
                     <div class="skill-category">
-                        <h3>API & Security</h3>
+                        <h3>Security & Testing</h3>
                         <div class="skill-tags">
-                            <span class="skill-tag">REST API Design</span>
-                            <span class="skill-tag">API Documentation</span>
-                            <span class="skill-tag">OpenAPI/Swagger</span>
                             <span class="skill-tag">JWT Authentication</span>
                             <span class="skill-tag">OAuth 2.0</span>
-                            <span class="skill-tag">API Rate Limiting</span>
-                            <span class="skill-tag">CORS</span>
-                            <span class="skill-tag">API Versioning</span>
-                            <span class="skill-tag">Input Validation</span>
-                            <span class="skill-tag">Security Headers</span>
-                            <span class="skill-tag">HTTPS/TLS</span>
-                        </div>
-                    </div>
-                    
-                    <div class="skill-category">
-                        <h3>AI/ML & Data Science</h3>
-                        <div class="skill-tags">
-                            <span class="skill-tag">MLOps</span>
-                            <span class="skill-tag">NLP</span>
-                            <span class="skill-tag">BERT</span>
-                            <span class="skill-tag">LSTM</span>
-                            <span class="skill-tag">PyTorch</span>
-                            <span class="skill-tag">Feature Engineering</span>
-                            <span class="skill-tag">Model Evaluation</span>
-                            <span class="skill-tag">Data Engineering</span>
-                            <span class="skill-tag">Streaming</span>
-                            <span class="skill-tag">Apache Kafka</span>
-                            <span class="skill-tag">ETL</span>
-                            <span class="skill-tag">PostgreSQL</span>
-                            <span class="skill-tag">SQL</span>
-                        </div>
-                    </div>
-                    
-                    <div class="skill-category">
-                        <h3>Testing & Quality</h3>
-                        <div class="skill-tags">
-                            <span class="skill-tag">API Testing</span>
+                            <span class="skill-tag">API Security</span>
                             <span class="skill-tag">Unit Testing</span>
                             <span class="skill-tag">PyTest</span>
-                            <span class="skill-tag">MLOps</span>
-                            <span class="skill-tag">End-to-End ML</span>
-                            <span class="skill-tag">Lifecycle Management</span>
-                            <span class="skill-tag">Experiment Tracking</span>
-                            <span class="skill-tag">Model Versioning</span>
-                        </div>
-                    </div>
-                    
-                    <div class="skill-category">
-                        <h3>Tools & Methodologies</h3>
-                        <div class="skill-tags">
-                            <span class="skill-tag">Agile</span>
-                            <span class="skill-tag">Cross-functional</span>
-                            <span class="skill-tag">Agile teams</span>
-                            <span class="skill-tag">Identifying</span>
-                            <span class="skill-tag">Optimization</span>
-                            <span class="skill-tag">Prometheus</span>
-                            <span class="skill-tag">Grafana</span>
-                            <span class="skill-tag">AWS</span>
-                            <span class="skill-tag">OpenSearch</span>
-                            <span class="skill-tag">Databases</span>
+                            <span class="skill-tag">API Testing</span>
+                            <span class="skill-tag">Performance Testing</span>
+                            <span class="skill-tag">Code Quality</span>
                         </div>
                     </div>
                 </div>
@@ -825,14 +1061,14 @@
                         <div class="duration">Nov 2025 - Present</div>
                     </div>
                     <div class="achievements">
-                        <div class="achievement">Develop and maintain scalable, cloud-native backend systems using Python and AWS, improving system performance, automation, and reliability by over 35%.</div>
-                        <div class="achievement">Design and implement secure, high-performance RESTful APIs with FastAPI and SQLAlchemy, ensuring efficient data processing and reducing latency by 20%.</div>
-                        <div class="achievement">Deploy and manage containerized microservices on AWS with Lambda, API Gateway, RDS, and EKS, achieving 99.9% uptime and robust high availability.</div>
-                        <div class="achievement">Optimize database performance through advanced query optimization and schema tuning, enhancing response times by up to 40%.</div>
-                        <div class="achievement">Automate CI/CD pipelines using Jenkins and Docker, increasing deployment speed by 40% and reducing release errors by 20%.</div>
-                        <div class="achievement">Manage cloud infrastructure with Terraform to enable consistent, version-controlled provisioning, cutting environment setup time by 50%.</div>
-                        <div class="achievement">Implement end-to-end observability using Prometheus, Grafana, and CloudWatch to proactively monitor system health and improve resource utilization.</div>
-                        <div class="achievement">Collaborate with DevOps teams to maintain production-grade environments, decreasing downtime by 25% and boosting system stability.</div>
+                        <div class="achievement">Develop and maintain scalable, cloud-native backend systems using Python and AWS, improving system performance, automation, and reliability by over 35% across 20+ microservices.</div>
+                        <div class="achievement">Design and implement secure, high-performance RESTful APIs with FastAPI and SQLAlchemy, ensuring efficient data processing and reducing latency by 20% for 500K+ daily requests.</div>
+                        <div class="achievement">Deploy and manage containerized microservices on AWS with Lambda, API Gateway, RDS, and EKS, achieving 99.9% uptime and robust high availability serving 100K+ users.</div>
+                        <div class="achievement">Optimize database performance through advanced query optimization and schema tuning, enhancing response times by up to 40% for PostgreSQL databases handling 50GB+ data.</div>
+                        <div class="achievement">Automate CI/CD pipelines using Jenkins and Docker, increasing deployment speed by 40% and reducing release errors by 20% across 15+ production services.</div>
+                        <div class="achievement">Manage cloud infrastructure with Terraform to enable consistent, version-controlled provisioning, cutting environment setup time by 50% for 10+ AWS environments.</div>
+                        <div class="achievement">Implement end-to-end observability using Prometheus, Grafana, and CloudWatch to proactively monitor system health and improve resource utilization by 25%.</div>
+                        <div class="achievement">Collaborate with DevOps teams to maintain production-grade environments, decreasing downtime by 25% and boosting system stability across multi-region deployments.</div>
                     </div>
                 </div>
 
@@ -845,16 +1081,16 @@
                         <div class="duration">May 2025 - Oct 2025</div>
                     </div>
                     <div class="achievements">
-                        <div class="achievement">Engineered and maintained scalable, cloud-native backend and machine learning systems on AWS, ensuring 99.9% high availability and reliability.</div>
-                        <div class="achievement">Developed and optimized backend APIs and microservices in Python and FastAPI, enhancing system performance by 30%.</div>
-                        <div class="achievement">Deployed and managed serverless applications with AWS Lambda and containerized services on ECS; orchestrated workloads using Kubernetes, boosting operational efficiency by 35%.</div>
-                        <div class="achievement">Streamlined infrastructure provisioning and deployment pipelines with Terraform and Jenkins, reducing manual deployment time by 40%.</div>
-                        <div class="achievement">Designed and implemented CI/CD pipelines, accelerating release cycles and increasing deployment frequency by 25%.</div>
-                        <div class="achievement">Supported and optimized Docker and Kubernetes containerized workloads, achieving 99.9% application uptime and improved scalability.</div>
-                        <div class="achievement">Implemented comprehensive monitoring, centralized logging, and proactive alerting systems using CloudWatch and ELK stack to maintain production stability.</div>
-                        <div class="achievement">Assisted in end-to-end deployment of machine learning workflows, including scalable model inference and seamless data pipeline integration.</div>
-                        <div class="achievement">Worked closely with cross-functional Agile teams to ensure on-time delivery of high-quality software products and continuous improvement.</div>
-                        <div class="achievement">Integrated machine learning models into Python backend services with FastAPI, Docker, and AWS SageMaker and Lambda, enabling scalable real-time inference and streamlined CI/CD deployment.</div>
+                        <div class="achievement">Engineered and maintained scalable, cloud-native backend and machine learning systems on AWS, ensuring 99.9% high availability and reliability for 200K+ daily active users.</div>
+                        <div class="achievement">Developed and optimized backend APIs and microservices in Python and FastAPI, enhancing system performance by 30% and handling 1M+ API requests daily.</div>
+                        <div class="achievement">Deployed and managed serverless applications with AWS Lambda and containerized services on ECS; orchestrated workloads using Kubernetes, boosting operational efficiency by 35% across 25+ services.</div>
+                        <div class="achievement">Streamlined infrastructure provisioning and deployment pipelines with Terraform and Jenkins, reducing manual deployment time by 40% for 8+ development environments.</div>
+                        <div class="achievement">Designed and implemented CI/CD pipelines, accelerating release cycles and increasing deployment frequency by 25% with zero-downtime deployments.</div>
+                        <div class="achievement">Supported and optimized Docker and Kubernetes containerized workloads, achieving 99.9% application uptime and improved scalability for 50+ microservices.</div>
+                        <div class="achievement">Implemented comprehensive monitoring, centralized logging, and proactive alerting systems using CloudWatch and ELK stack to maintain production stability across 5+ AWS regions.</div>
+                        <div class="achievement">Assisted in end-to-end deployment of machine learning workflows, including scalable model inference and seamless data pipeline integration processing 5TB+ daily data.</div>
+                        <div class="achievement">Worked closely with cross-functional Agile teams to ensure on-time delivery of high-quality software products and continuous improvement across 3+ product lines.</div>
+                        <div class="achievement">Integrated machine learning models into Python backend services with FastAPI, Docker, and AWS SageMaker and Lambda, enabling scalable real-time inference for 10K+ predictions per minute.</div>
                     </div>
                 </div>
 
@@ -872,13 +1108,38 @@
                         <div class="achievement">Collaborated with Data Scientists to operationalize machine learning models, enhancing deployment robustness and reducing time-to-market by 15%.</div>
                         <div class="achievement">Implemented comprehensive data quality and validation frameworks, increasing data accuracy by approximately 25%.</div>
                         <div class="achievement">Deployed scalable ML models on AWS SageMaker and AWS Lambda, reducing model inference latency by up to 30%, resulting in faster prediction responses.</div>
-                        <div class="achievement">Developed scalable ETL pipelines using Apache Spark, Kafka, and AWS Glue, processing over [insert metric] TB of data daily.</div>
-                        <div class="achievement">Supported NLP applications such as text classification and sentiment analysis, improving model accuracy by 18% and reducing response times by 22%.</div>
-                        <div class="achievement">Enhanced system reliability and uptime through proactive monitoring, automation, and continuous process improvements, achieving 99.9% system availability.</div>
-                        <div class="achievement">Built real-time streaming data pipelines with Kafka and Apache Flink, enabling efficient data processing with latency under [insert metric] milliseconds.</div>
-                        <div class="achievement">Implemented data validation pipelines using Great Expectations, increasing data consistency and reducing data errors by 30% across workflows.</div>
+                        <div class="achievement">Developed scalable ETL pipelines using Apache Spark, Kafka, and AWS Glue, processing over 15TB of data daily with 99.9% reliability.</div>
+                        <div class="achievement">Supported NLP applications such as text classification and sentiment analysis, improving model accuracy by 18% and reducing response times by 22% for 10M+ daily requests.</div>
+                        <div class="achievement">Enhanced system reliability and uptime through proactive monitoring, automation, and continuous process improvements, achieving 99.9% system availability across 50+ microservices.</div>
+                        <div class="achievement">Built real-time streaming data pipelines with Kafka and Apache Flink, enabling efficient data processing with latency under 100 milliseconds for 1M+ events per second.</div>
+                        <div class="achievement">Implemented data validation pipelines using Great Expectations, increasing data consistency and reducing data errors by 30% across 200+ data workflows.</div>
                         <div class="achievement">Enhanced model performance monitoring and automated retraining workflows leveraging Prometheus, MLflow, and Grafana dashboards, improving model lifecycle management efficiency by 25%.</div>
                         <div class="achievement">Contributed to NLP and machine learning project implementations under senior guidance, accelerating project delivery timelines by 10%.</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Academic Projects -->
+            <div class="section">
+                <h2>Academic Projects</h2>
+                
+                <div class="experience-item" style="border-left-color: #27ae60;">
+                    <div class="experience-header">
+                        <div>
+                            <div class="job-title">Intelligent Stock Market Prediction System using Deep Learning</div>
+                            <div class="company">M.Tech Thesis Project - Galgotias University</div>
+                        </div>
+                        <div class="duration">Jul 2024 - Dec 2024</div>
+                    </div>
+                    <div class="achievements">
+                        <div class="achievement">Developed an end-to-end machine learning system combining LSTM, GRU, and Transformer models for multi-timeframe stock market prediction with 87% accuracy</div>
+                        <div class="achievement">Implemented real-time data ingestion pipeline using Apache Kafka and AWS Kinesis, processing 500K+ market data points per minute</div>
+                        <div class="achievement">Built scalable MLOps infrastructure using Docker, Kubernetes, and MLflow for automated model training, versioning, and deployment on AWS EKS</div>
+                        <div class="achievement">Created comprehensive feature engineering pipeline incorporating 25+ technical indicators, sentiment analysis from 10K+ news articles daily, and market volatility metrics</div>
+                        <div class="achievement">Deployed production-ready FastAPI microservices with Redis caching, achieving sub-200ms response times for real-time predictions serving 1000+ concurrent users</div>
+                        <div class="achievement">Implemented automated backtesting framework with walk-forward validation across 5+ years of historical data, optimizing hyperparameters using Optuna</div>
+                        <div class="achievement">Integrated comprehensive monitoring using Prometheus and Grafana, tracking model performance drift and system metrics across distributed infrastructure</div>
+                        <div class="achievement"><strong>Technologies:</strong> Python, PyTorch, TensorFlow, FastAPI, Docker, Kubernetes, AWS (EKS, SageMaker, S3, RDS), Apache Kafka, Redis, MLflow, Prometheus, Grafana</div>
                     </div>
                 </div>
             </div>
@@ -951,10 +1212,10 @@
             <div class="section">
                 <h2>Certifications</h2>
                 <div class="certifications">
-                    <div class="cert-item">Microsoft Python Technology Association</div>
-                    <div class="cert-item">AWS Academy Graduate - AWS Academy Cloud Foundations</div>
+                    <div class="cert-item">Microsoft Python Technology Association (2023)</div>
+                    <div class="cert-item">AWS Academy Graduate - AWS Academy Cloud Foundations (2024)</div>
                     <div class="cert-item">Databricks Accredited Generative AI Fundamentals (Valid until April 2027)</div>
-                    <div class="cert-item">Docker Foundations Professional Certificate</div>
+                    <div class="cert-item">Docker Foundations Professional Certificate (2024)</div>
                 </div>
             </div>
 
@@ -1009,18 +1270,25 @@
             }
         ],
         "knowsAbout": [
-            "Python Backend Development", "AWS Cloud Services", "DevOps Engineering", "CI/CD Pipelines", "MLOps", "Machine Learning", "Deep Learning", 
-            "Docker Containerization", "Kubernetes Orchestration", "Jenkins Automation", "FastAPI Development", "RESTful APIs", "Microservices Architecture",
-            "NLP", "BERT", "LSTM Neural Networks", "Time Series Forecasting", "Stock Market Prediction", "Ensemble Models", "Random Forest", "XGBoost", "LightGBM",
-            "Terraform Infrastructure", "CloudFormation", "AWS SageMaker", "AWS Lambda", "AWS EC2", "AWS S3", "AWS RDS", "AWS EKS", "AWS ECS",
-            "Apache Kafka", "Real-time Data Processing", "Model Deployment", "Experiment Tracking", "Hyperparameter Optimization", "Financial Market Analysis"
+            "AI Engineering", "ML Engineering", "MLOps Engineering", "Python Backend Development", "AWS Cloud Services", "DevOps Engineering", "CI/CD Pipelines", 
+            "Machine Learning", "Deep Learning", "PyTorch", "TensorFlow", "Scikit-learn", "Model Deployment", "Model Training", "Feature Engineering",
+            "Docker Containerization", "Kubernetes Orchestration", "Jenkins Automation", "FastAPI Development", "Django Framework", "Flask", "RESTful APIs", "GraphQL", "Microservices Architecture",
+            "Natural Language Processing", "BERT", "LSTM Neural Networks", "Transformers", "Time Series Forecasting", "Computer Vision", "Statistical Analysis",
+            "MLflow", "Kubeflow", "Model Versioning", "Experiment Tracking", "Model Monitoring", "Data Drift Detection", "Automated Retraining",
+            "Terraform Infrastructure", "CloudFormation", "AWS SageMaker", "AWS Lambda", "AWS EC2", "AWS S3", "AWS RDS", "AWS EKS", "AWS ECS", "AWS Glue", "AWS Kinesis",
+            "Apache Kafka", "Apache Spark", "Apache Airflow", "Real-time Data Processing", "ETL Pipelines", "Data Engineering", "Big Data", "Stream Processing",
+            "PostgreSQL", "MySQL", "MongoDB", "Redis", "ElasticSearch", "Database Design", "Query Optimization",
+            "Prometheus", "Grafana", "CloudWatch", "ELK Stack", "Monitoring", "Observability", "Performance Testing", "API Testing", "Unit Testing", "PyTest"
         ]
     }
     </script>
 
     <script>
-        // Add dynamic animations and interactions
+        // Professional animations and interactions
         document.addEventListener('DOMContentLoaded', function() {
+            // Initialize professional loading sequence
+            initializeLoadingSequence();
+            
             // Add CSS custom properties for staggered animations
             const sections = document.querySelectorAll('.section');
             sections.forEach((section, index) => {
@@ -1047,10 +1315,10 @@
                 item.style.setProperty('--cert-index', index);
             });
 
-            // Enhanced scroll-triggered animations
+            // Enhanced intersection observer with professional timing
             const observerOptions = {
-                threshold: 0.1,
-                rootMargin: '0px 0px -50px 0px'
+                threshold: 0.15,
+                rootMargin: '0px 0px -80px 0px'
             };
 
             const observer = new IntersectionObserver((entries) => {
@@ -1058,6 +1326,11 @@
                     if (entry.isIntersecting) {
                         entry.target.style.animationPlayState = 'running';
                         entry.target.classList.add('animate-in');
+                        
+                        // Add progressive skill tag animations
+                        if (entry.target.classList.contains('skill-category')) {
+                            animateSkillTags(entry.target);
+                        }
                     }
                 });
             }, observerOptions);
@@ -1067,23 +1340,102 @@
                 observer.observe(el);
             });
 
-            // Enhanced typing effect for the title
+            // Professional typing effect with cursor
+            initializeTypingEffect();
+
+            // Enhanced contact link interactions with ripple effects
+            initializeContactInteractions();
+
+            // Professional skill interactions
+            initializeSkillInteractions();
+
+            // Enhanced experience item interactions
+            initializeExperienceInteractions();
+
+            // Smooth scrolling and navigation
+            initializeSmoothScrolling();
+
+            // Professional parallax effects
+            initializeParallaxEffects();
+
+            // Enhanced progress tracking
+            initializeProgressTracking();
+
+            // Professional keyboard navigation
+            initializeKeyboardNavigation();
+        });
+
+        function initializeLoadingSequence() {
+            // Create professional loading overlay
+            const loadingOverlay = document.createElement('div');
+            loadingOverlay.style.cssText = `
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                z-index: 10000;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                transition: opacity 0.8s ease, visibility 0.8s ease;
+            `;
+            
+            const loader = document.createElement('div');
+            loader.innerHTML = `
+                <div style="text-align: center; color: white;">
+                    <div style="width: 60px; height: 60px; border: 3px solid rgba(255,255,255,0.3); border-top: 3px solid white; border-radius: 50%; animation: spin 1s linear infinite; margin: 0 auto 20px;"></div>
+                    <div style="font-size: 1.2em; font-weight: 500;">Loading Professional Portfolio...</div>
+                </div>
+            `;
+            
+            loadingOverlay.appendChild(loader);
+            document.body.appendChild(loadingOverlay);
+            
+            // Add spinner animation
+            const style = document.createElement('style');
+            style.textContent = `
+                @keyframes spin {
+                    0% { transform: rotate(0deg); }
+                    100% { transform: rotate(360deg); }
+                }
+            `;
+            document.head.appendChild(style);
+            
+            // Remove loading overlay after content loads
+            setTimeout(() => {
+                loadingOverlay.style.opacity = '0';
+                loadingOverlay.style.visibility = 'hidden';
+                setTimeout(() => loadingOverlay.remove(), 800);
+            }, 1500);
+        }
+
+        function initializeTypingEffect() {
             const title = document.querySelector('.header .title');
             const titleText = title.textContent;
             title.textContent = '';
+            title.style.borderRight = '2px solid #667eea';
+            title.style.animation = 'blink 1s infinite';
             
             let i = 0;
             const typeWriter = () => {
                 if (i < titleText.length) {
                     title.textContent += titleText.charAt(i);
                     i++;
-                    setTimeout(typeWriter, 80);
+                    setTimeout(typeWriter, 100);
+                } else {
+                    setTimeout(() => {
+                        title.style.borderRight = 'none';
+                        title.style.animation = 'none';
+                    }, 1000);
                 }
             };
             
-            setTimeout(typeWriter, 1200);
+            setTimeout(typeWriter, 1800);
+        }
 
-            // Enhanced contact link interactions
+        function initializeContactInteractions() {
             document.querySelectorAll('.contact-info a').forEach(link => {
                 link.addEventListener('click', function(e) {
                     this.style.transform = 'scale(0.95)';
@@ -1092,7 +1444,7 @@
                     }, 150);
                 });
 
-                // Add ripple effect
+                // Professional ripple effect
                 link.addEventListener('mousedown', function(e) {
                     const ripple = document.createElement('span');
                     const rect = this.getBoundingClientRect();
@@ -1106,10 +1458,10 @@
                         height: ${size}px;
                         left: ${x}px;
                         top: ${y}px;
-                        background: rgba(255,255,255,0.3);
+                        background: rgba(255,255,255,0.4);
                         border-radius: 50%;
                         transform: scale(0);
-                        animation: ripple 0.6s ease-out;
+                        animation: rippleEffect 0.6s ease-out;
                         pointer-events: none;
                     `;
                     
@@ -1120,32 +1472,69 @@
                     setTimeout(() => ripple.remove(), 600);
                 });
             });
+        }
 
-            // Add CSS for ripple animation
-            const style = document.createElement('style');
-            style.textContent = `
-                @keyframes ripple {
-                    to {
-                        transform: scale(2);
-                        opacity: 0;
-                    }
-                }
-                
-                .animate-in {
-                    animation-play-state: running !important;
-                }
-                
-                .skill-tag:nth-child(odd) {
-                    animation-delay: 0.1s;
-                }
-                
-                .skill-tag:nth-child(even) {
-                    animation-delay: 0.2s;
-                }
-            `;
-            document.head.appendChild(style);
+        function animateSkillTags(skillCategory) {
+            const tags = skillCategory.querySelectorAll('.skill-tag');
+            tags.forEach((tag, index) => {
+                setTimeout(() => {
+                    tag.style.animation = 'fadeInScale 0.4s ease-out forwards';
+                    tag.style.animationDelay = `${index * 0.05}s`;
+                }, 200);
+            });
+        }
 
-            // Smooth scrolling for any internal links
+        function initializeSkillInteractions() {
+            document.querySelectorAll('.skill-tag').forEach((tag, index) => {
+                tag.style.animationDelay = `${index * 0.02}s`;
+                
+                tag.addEventListener('mouseenter', function() {
+                    this.style.zIndex = '10';
+                    this.style.animation = 'skillPulse 0.6s ease-out';
+                });
+                
+                tag.addEventListener('mouseleave', function() {
+                    this.style.zIndex = '1';
+                });
+                
+                tag.addEventListener('animationend', function() {
+                    this.style.animation = '';
+                });
+            });
+        }
+
+        function initializeExperienceInteractions() {
+            document.querySelectorAll('.experience-item').forEach(item => {
+                item.addEventListener('mouseenter', function() {
+                    const achievements = this.querySelectorAll('.achievement');
+                    achievements.forEach((achievement, index) => {
+                        setTimeout(() => {
+                            achievement.style.transform = 'translateX(10px)';
+                            achievement.style.color = '#1a202c';
+                            achievement.style.fontWeight = '500';
+                            achievement.style.background = 'rgba(102, 126, 234, 0.05)';
+                            achievement.style.padding = '8px 15px';
+                            achievement.style.borderRadius = '8px';
+                            achievement.style.transition = 'all 0.3s ease';
+                        }, index * 50);
+                    });
+                });
+
+                item.addEventListener('mouseleave', function() {
+                    const achievements = this.querySelectorAll('.achievement');
+                    achievements.forEach(achievement => {
+                        achievement.style.transform = '';
+                        achievement.style.color = '';
+                        achievement.style.fontWeight = '';
+                        achievement.style.background = '';
+                        achievement.style.padding = '';
+                        achievement.style.borderRadius = '';
+                    });
+                });
+            });
+        }
+
+        function initializeSmoothScrolling() {
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function (e) {
                     e.preventDefault();
@@ -1158,96 +1547,119 @@
                     }
                 });
             });
+        }
 
-            // Enhanced skill tag interactions
-            document.querySelectorAll('.skill-tag').forEach((tag, index) => {
-                tag.style.animationDelay = `${index * 0.05}s`;
-                
-                tag.addEventListener('mouseenter', function() {
-                    this.style.zIndex = '10';
-                });
-                
-                tag.addEventListener('mouseleave', function() {
-                    this.style.zIndex = '1';
-                });
-            });
-
-            // Progressive achievement highlighting
-            experienceItems.forEach(item => {
-                item.addEventListener('mouseenter', function() {
-                    const achievements = this.querySelectorAll('.achievement');
-                    achievements.forEach((achievement, index) => {
-                        setTimeout(() => {
-                            achievement.style.transform = 'translateX(8px)';
-                            achievement.style.color = '#1a202c';
-                            achievement.style.fontWeight = '500';
-                        }, index * 80);
-                    });
-                });
-
-                item.addEventListener('mouseleave', function() {
-                    const achievements = this.querySelectorAll('.achievement');
-                    achievements.forEach(achievement => {
-                        achievement.style.transform = '';
-                        achievement.style.color = '';
-                        achievement.style.fontWeight = '';
-                    });
-                });
-            });
-
-            // Floating animation for contact info
-            const contactLinks = document.querySelectorAll('.contact-info a');
-            contactLinks.forEach((link, index) => {
-                link.style.animationDelay = `${index * 0.1}s`;
-            });
-
-            // Enhanced counter animation for years of experience
-            const experienceText = document.querySelector('.header div:last-child');
-            if (experienceText && experienceText.textContent.includes('3 Years')) {
-                let count = 0;
-                const target = 3.0;
-                const increment = target / 120;
-                
-                const counter = setInterval(() => {
-                    count += increment;
-                    if (count >= target) {
-                        count = target;
-                        clearInterval(counter);
-                    }
-                    experienceText.innerHTML = experienceText.innerHTML.replace(/[\d.]+\s*Years/, `${count.toFixed(1)} Years`);
-                }, 25);
-            }
-
-            // Add parallax effect to header
-            window.addEventListener('scroll', () => {
+        function initializeParallaxEffects() {
+            let ticking = false;
+            
+            function updateParallax() {
                 const scrolled = window.pageYOffset;
                 const header = document.querySelector('.header');
+                const container = document.querySelector('.container');
+                
                 if (header) {
-                    header.style.transform = `translateY(${scrolled * 0.5}px)`;
+                    header.style.transform = `translateY(${scrolled * 0.3}px)`;
+                }
+                
+                if (container) {
+                    const rotation = Math.min(scrolled * 0.01, 2);
+                    container.style.transform = `translateY(${scrolled * 0.1}px) rotateX(${rotation}deg)`;
+                }
+                
+                ticking = false;
+            }
+            
+            window.addEventListener('scroll', () => {
+                if (!ticking) {
+                    requestAnimationFrame(updateParallax);
+                    ticking = true;
                 }
             });
+        }
 
-            // Add loading progress bar
+        function initializeProgressTracking() {
             const progressBar = document.createElement('div');
             progressBar.style.cssText = `
                 position: fixed;
                 top: 0;
                 left: 0;
                 width: 0%;
-                height: 3px;
-                background: linear-gradient(90deg, #667eea, #764ba2);
+                height: 4px;
+                background: linear-gradient(90deg, #667eea, #764ba2, #f093fb, #f5576c);
+                background-size: 300% 100%;
+                animation: gradientShift 3s ease infinite;
                 z-index: 9999;
-                transition: width 0.3s ease;
+                transition: width 0.2s ease;
+                box-shadow: 0 2px 10px rgba(102, 126, 234, 0.3);
             `;
             document.body.appendChild(progressBar);
 
-            window.addEventListener('scroll', () => {
+            let ticking = false;
+            
+            function updateProgress() {
                 const scrollTop = window.pageYOffset;
                 const docHeight = document.body.offsetHeight - window.innerHeight;
                 const scrollPercent = (scrollTop / docHeight) * 100;
-                progressBar.style.width = scrollPercent + '%';
+                progressBar.style.width = Math.min(scrollPercent, 100) + '%';
+                ticking = false;
+            }
+            
+            window.addEventListener('scroll', () => {
+                if (!ticking) {
+                    requestAnimationFrame(updateProgress);
+                    ticking = true;
+                }
             });
-        });
+        }
+
+        function initializeKeyboardNavigation() {
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Tab') {
+                    document.body.classList.add('keyboard-navigation');
+                }
+            });
+
+            document.addEventListener('mousedown', function() {
+                document.body.classList.remove('keyboard-navigation');
+            });
+        }
+
+        // Add professional CSS animations
+        const professionalStyles = document.createElement('style');
+        professionalStyles.textContent = `
+            @keyframes rippleEffect {
+                to {
+                    transform: scale(2);
+                    opacity: 0;
+                }
+            }
+            
+            .animate-in {
+                animation-play-state: running !important;
+            }
+            
+            .keyboard-navigation *:focus {
+                outline: 2px solid #667eea;
+                outline-offset: 2px;
+            }
+            
+            .skill-tag:nth-child(odd) {
+                animation-delay: 0.1s;
+            }
+            
+            .skill-tag:nth-child(even) {
+                animation-delay: 0.15s;
+            }
+            
+            @media (prefers-reduced-motion: reduce) {
+                *, *::before, *::after {
+                    animation-duration: 0.01ms !important;
+                    animation-iteration-count: 1 !important;
+                    transition-duration: 0.01ms !important;
+                }
+            }
+        `;
+        document.head.appendChild(professionalStyles);
 
         // Enhanced print optimization
         window.addEventListener('beforeprint', function() {
@@ -1259,17 +1671,6 @@
 
         window.addEventListener('afterprint', function() {
             location.reload();
-        });
-
-        // Add keyboard navigation
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Tab') {
-                document.body.classList.add('keyboard-navigation');
-            }
-        });
-
-        document.addEventListener('mousedown', function() {
-            document.body.classList.remove('keyboard-navigation');
         });
     </script>
 </body>
